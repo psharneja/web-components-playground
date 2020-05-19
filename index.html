@@ -12,8 +12,8 @@
     <script src="tooltip.js"></script>
 </head>
 <body>
-    <template id="tooltip-template"> <span> (?)</span></template>
+    <template id="tooltip-template"> <slot>something default here</slot><span> (?)</span></template>
    <p> <my-tooltip text='web components are confusing'>web components</my-tooltip> are funky</p>
-   <p> <my-tooltip>here</my-tooltip> we go</p>
+   <p> <my-tooltip></my-tooltip> we go</p>
 </body>
 </html>
