@@ -7,15 +7,22 @@ class Tooltip extends HTMLElement {
     this.shadowRoot.innerHTML = `
     <style>
      div {
+         font-weight: normal;
          background-color: black;
          color:white;
          position: absolute;
          z-index: 10;
+         top:2.25rem;
+         left; 0.75rem;
+         padding; 0.15rem;
+         border-radius: 3px;
+         box-shadow; 1px 1px 6px rgba(0,0,0,0.26);
      }
 
 
      :host(.crossword) {
          background-color: var(--color-primary, #gray);
+         padding; 0.15rem;
      }
      
      :host-context(p.outer) {
@@ -25,7 +32,6 @@ class Tooltip extends HTMLElement {
    
 
     ::slotted(.highlight) {
-        background-color: red; 
         border: 2px solid green;
 
     }
