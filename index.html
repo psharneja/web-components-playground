@@ -10,19 +10,39 @@
 
         }
         :root {
-            --color-primary: #a4e6fc;
+            margin:2rem;
             font-family: sans-serif;
         }
       
        
     </style>
-    <script src="tooltip.js"></script>
-    <script src="confirm-link.js"></script>
+    <script src="modal.js"></script>
 </head>
 <body>
-   <p  class="outer"> <my-tooltip class="crossword" text='web components are confusing'><span class="highlight">web components</span></my-tooltip> are funky</p>
-   <p> <my-tooltip></my-tooltip> we go</p>
+  <my-modal>
+      <h1 slot="title">please confirm</h1>
+      <span>Please confirm you choice</span>
+  </my-modal>
+  <p>Please confirm you choice</p>
+  <button>show details & confirm</button>
+  <script>
+      const confirmButton = document.querySelector('button');
+      const modal = document.querySelector('my-modal');
+      modal.addEventListener('confirm', () =>{
+        console.log('confirm event')
 
-   <a is="my-confirm-link" ref="https://www.google.com">google</a>
+      })
+      modal.addEventListener('cancel', () =>{
+          console.log('cancel event')
+        })
+      confirmButton.addEventListener('click', () => {
+        //   modal.setAttribute('opened', '')
+        if(!modal.isOpen) {
+
+            modal.open();
+        }
+
+      })
+  </script>
 </body>
 </html>
