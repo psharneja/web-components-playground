@@ -12,9 +12,38 @@ class Tooltip extends HTMLElement {
          position: absolute;
          z-index: 10;
      }
+
+
+     :host(.crossword) {
+         background-color: var(--color-primary, #gray);
+     }
+     
+     :host-context(p.outer) {
+         font-weight: bold;
+
+     }
+   
+
+    ::slotted(.highlight) {
+        background-color: red; 
+        border: 2px solid green;
+
+    }
+    .icon {
+        background:black;
+        color: white;
+        padding: 0.15rem;
+        text-align:center;
+        border-radius:50%;
+
+
+    }
+    //css in master overrides the css for shadow slot;:slotted
+    //when it has class crossword :host(.crossword)
+    //when its inside an element ;host-context(p .classname)
     </style>
     <slot>something default here</slot>
-    <span> (?)</span>
+    <span class="icon">(?)</span>
     `;
   }
 
